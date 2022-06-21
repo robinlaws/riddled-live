@@ -5,16 +5,15 @@ const mongoose = require('mongoose');
 const RiddleModel = require('./models/riddleModels')
 const cors = require('cors');
 
-app.use(express.static(path.join(__dirname, '/build')))
+// app.use(express.static(path.join(__dirname, '/build')))
 app.use(express.json());
 app.use(cors());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
 
 // mongoose.connect("mongodb+srv://robinlaws:36Empire@riddledcluster.7nxyj.mongodb.net/riddledDatabase?retryWrites=true&w=majority");
 mongoose.connect("mongodb://127.0.0.1:27017/riddles");
 
-let users = 0;
-let wins = 0;
+let allUsers = {users : 0, wins: 0}
 
 app.get("/api/getRiddle", (req, res) => {
     const today = new Date();
@@ -28,14 +27,22 @@ app.get("/api/getRiddle", (req, res) => {
     });
 });
 
-app.post("api/getAllUsers", (req, res) => {
-    let count = req.body;
-
+app.post("/api/postResults", (req, res) => {
+    let winner = req.body;
+    console.log(winner);
+    allUsers.users += 1;
+    if (winner.bool){
+        allUsers.wins += 1;
+    }
 })
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/build/index.html'));
-});
+app.get("/api/getResults", (req, res) => {
+    res.json({users: [allUsers.users], wins: [allUsers.wins]});
+})
+
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '/build/index.html'));
+// });
 
 app.listen(8000, () => console.log("Server running. Listening on 8000"));
 

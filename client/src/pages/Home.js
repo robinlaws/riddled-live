@@ -6,6 +6,7 @@ import {Guesses} from "../views/guesses";
 import { UserKeyboard } from '../components/keyboard';
 import {Stats} from "../pages/Stats";
 import { propTypes } from 'react-bootstrap/esm/Image';
+import {JWT} from "../components/jwt";
 
 
 export function Home(props){
@@ -29,6 +30,7 @@ export function Home(props){
           <div className="stats"><h1>COME BACK TOMORROW FOR A NEW RIDDLE!</h1>
           <p><strong>Today's Riddle: </strong>{props.riddle.riddle}</p>
           <p><strong>Solution: </strong>{props.riddle.solution}</p>
+          <JWT correct={correctGuess} />
           </div>
         )
       }
