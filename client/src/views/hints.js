@@ -5,6 +5,7 @@ export function Hints(props){
     let solution = props.riddle.solution || "";
     let solutionArray = (Array.from(solution));
     const [count, setCount] = useState(1);
+    const [blanks, setBlanks] = useState("");
 
     const filterArray = (value) => {
       return value !== " ";
@@ -19,15 +20,19 @@ export function Hints(props){
         console.log("REMAINING TURNS:", props.remainingTurns);
         setCount(count+1);
         let hintString = "";
+        let blankString = "";
+
 
     if (count === 1) {
         for (let i of solution) {
           if (i !== " "){
-            hintString += "_ ";
+            blankString += "_  ";
           } else {
-            hintString += ("\xa0\xa0");
+            blankString += ("\xa0\xa0\xa0");
           }
         }
+        setBlanks(blankString);
+        hintString += `There are ${solutionArray.length} letters!`
         props.setUserGuesses(props.userGuesses.concat("HINT: " + hintString));
     }
     if (count === 2 || count === 3 || count === 4 || count === 5) {
@@ -41,6 +46,7 @@ export function Hints(props){
 
 return (
     <div>
+    <div><h3>{blanks}</h3></div>
     <Button className="bg-custom-button" onClick={hintCount}>Get Hint</Button>
     </div> 
   )

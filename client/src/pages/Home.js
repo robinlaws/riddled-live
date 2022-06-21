@@ -26,9 +26,9 @@ export function Home(props){
     if(props.user){
     if (props.user.datePlayed === props.riddle.date){
         return (
-          <div className="stats"><p>COME BACK TOMORROW FOR A NEW RIDDLE!</p>
-          <p>Todays Riddle: {props.riddle.riddle}</p>
-          <p>Answer: {props.riddle.solution}</p>
+          <div className="stats"><h1>COME BACK TOMORROW FOR A NEW RIDDLE!</h1>
+          <p><strong>Today's Riddle: </strong>{props.riddle.riddle}</p>
+          <p><strong>Solution: </strong>{props.riddle.solution}</p>
           </div>
         )
       }

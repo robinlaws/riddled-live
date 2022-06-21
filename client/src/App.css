@@ -1,18 +1,27 @@
 .App {
   text-align: center;
-
+  background-color: #bbb8ba;
+  padding-bottom: 10px;
+  margin: auto;
 }
+html {background: fixed;
+background-color: #bbb8ba;}
 
+h1 {
+  padding-top: 20px;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, .8);
+}
 #sticky-footer{
   position:fixed;
-  padding: 10px 10px 10px 10px;
   bottom:0;
   width:100%;
+  margin-top: 100px;
 }
 
 .simple-keyboard {
   max-width: 850px;
-  margin:auto;
+  margin: auto;
+  margin-bottom: auto;
   justify-content: center;
 }
 
@@ -136,6 +145,7 @@ input {
   font-family: Arial, Helvetica, sans-serif;
   display: flexbox;
 }
+
 .bg-custom-button {
   background-color: #f5f5f5;
   border-color: black;
@@ -147,4 +157,5 @@ input {
 }
 ::placeholder {
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }

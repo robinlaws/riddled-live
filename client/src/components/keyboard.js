@@ -32,9 +32,8 @@ export function UserKeyboard(props){
     return (
       <>
         <br></br>
-        <div>Guess: {input}</div>
+        <div><h3>{input}</h3></div>
         <div className="App">
-        <br></br>
         <br></br>
           <Keyboard
             keyboardRef={r => (keyboard.current = r)}

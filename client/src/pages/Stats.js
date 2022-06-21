@@ -35,8 +35,8 @@ export function Stats(props){
     return(
         <>    
         <br/>
-        <div class="container" style={{borderStyle: "solid", borderRadius: 5, borderWidth: 2, width: 1050, backgroundColor: "#f5f5f5"}}>
-
+        <h1>STATS</h1>
+        <div class="container" style={{borderStyle: "solid", borderRadius: 5, borderWidth: 2, width: 1050, backgroundColor: "#f5f5f5", padding: "50px", verticalAlign: "middle", justifyContent: "center", marginTop: "50px", marginBottom: "100px"}}>
         <div style={{marginTop: 10}}>
             <Container >
                 <Row style={statStyle} lg={6} className="justify-content-md-center">
