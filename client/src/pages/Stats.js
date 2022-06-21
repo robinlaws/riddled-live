@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProgressBar from 'react-bootstrap/ProgressBar'
+import SocialMedia from "../views/socialMedia";
 
 
 export function Stats(props){
@@ -76,7 +77,11 @@ export function Stats(props){
                 <Col style={guessDistrStyle}>5</Col>
                 <Col><ProgressBar now={props.user.five} max="5" style={{width: 300}} /></Col>
             </Row>
+
         </div>
+        <SocialMedia />
+
+
 
         </div>
         </>

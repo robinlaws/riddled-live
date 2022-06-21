@@ -13,6 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 // mongoose.connect("mongodb+srv://robinlaws:36Empire@riddledcluster.7nxyj.mongodb.net/riddledDatabase?retryWrites=true&w=majority");
 mongoose.connect("mongodb://127.0.0.1:27017/riddles");
 
+let users = 0;
+let wins = 0;
+
 app.get("/api/getRiddle", (req, res) => {
     const today = new Date();
     today.setHours(-2,-30,0,0);
@@ -24,6 +27,11 @@ app.get("/api/getRiddle", (req, res) => {
         }
     });
 });
+
+app.post("api/getAllUsers", (req, res) => {
+    let count = req.body;
+
+})
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/build/index.html'));
