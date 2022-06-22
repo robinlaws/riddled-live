@@ -18,8 +18,10 @@ function App() {
 
   const getRiddle = async () => {
     Axios.get(`/api/getRiddle`).then((response) => {
+      console.log(response.data);
       setRiddle(response.data)});
   }
+
   useEffect(() => {
     if (!user){
       setUser( {
@@ -34,6 +36,7 @@ function App() {
       })
     }
     window.localStorage.setItem('user', JSON.stringify(user));
+    console.log(user);
   }, []);
 
   useEffect(() => {
@@ -57,6 +60,5 @@ function App() {
     </div>
   );
 }
-
 
 export default App;

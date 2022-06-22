@@ -5,17 +5,13 @@ import {Hints} from "../views/hints";
 import {Guesses} from "../views/guesses";
 import { UserKeyboard } from '../components/keyboard';
 import {Stats} from "../pages/Stats";
-import { propTypes } from 'react-bootstrap/esm/Image';
-import {JWT} from "../components/jwt";
-
 
 export function Home(props){
     const [remainingTurns, setRemainingTurns] = useState(5);
     const [userGuesses, setUserGuess] = useState([]);
     const [noMoreTurns, setNoMoreTurns] = useState(false);
     const [correctGuess, isGuessCorrect] = useState(false);
-
-
+    
     useEffect(() => {
         setRemainingTurns(remainingTurns - 1);
         if (remainingTurns === 0){
@@ -24,18 +20,16 @@ export function Home(props){
         } 
       },[userGuesses]);
 
-    if(props.user){
+    if (props.user){
     if (props.user.datePlayed === props.riddle.date){
         return (
           <div className="stats"><h1>COME BACK TOMORROW FOR A NEW RIDDLE!</h1>
           <p><strong>Today's Riddle: </strong>{props.riddle.riddle}</p>
           <p><strong>Solution: </strong>{props.riddle.solution}</p>
-          <JWT correct={correctGuess} />
           </div>
         )
       }
     }
-
     if(noMoreTurns){
       props.user.datePlayed = props.riddle.date;
         props.user.gamesPlayed += 1;
@@ -48,7 +42,6 @@ export function Home(props){
             </>
           )
         }
-
     if (correctGuess){
         props.user.datePlayed = props.riddle.date;
         props.user.playedToday = true;
@@ -77,8 +70,6 @@ export function Home(props){
             </>
         )
     }
-
-
     else{
         return(
             <div>

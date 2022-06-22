@@ -24,22 +24,16 @@ export function UserKeyboard(props){
       setInput(input + button);
     }
   }
-  const onChange = (event) => {
-    console.log("ONCHANGE", event.target.value);
-    setInput(event.target.value);
-  }
-
     return (
       <>
         <br></br>
-        <div><h3>{input}</h3></div>
+        <div><h3> {input} </h3></div>
         <div className="App">
         <br></br>
           <Keyboard
             keyboardRef={r => (keyboard.current = r)}
-            layoutName={layout}
+            layoutName={"default"}
             onKeyPress={onKeyPress}
-            onChange={onChange}
             theme={"hg-theme-default myTheme1"}
             layout={{
               default: [

@@ -10,14 +10,13 @@ app.use(express.json());
 app.use(cors());
 // app.use(express.urlencoded({ extended: true }));
 
-// mongoose.connect("mongodb+srv://robinlaws:36Empire@riddledcluster.7nxyj.mongodb.net/riddledDatabase?retryWrites=true&w=majority");
-mongoose.connect("mongodb://127.0.0.1:27017/riddles");
+mongoose.connect("mongodb+srv://robinlaws:36Empire@riddledcluster.7nxyj.mongodb.net/riddledDatabase?retryWrites=true&w=majority");
+// mongoose.connect("mongodb://127.0.0.1:27017/riddles");
 
-let allUsers = {users : 0, wins: 0}
 
 app.get("/api/getRiddle", (req, res) => {
     const today = new Date();
-    today.setHours(-2,-30,0,0);
+    today.setHours(-2,-30,0,0)
     RiddleModel.findOne({'date':[today]}, (err, result) => {
         if (err) {
             res.json(err);
@@ -27,18 +26,6 @@ app.get("/api/getRiddle", (req, res) => {
     });
 });
 
-app.post("/api/postResults", (req, res) => {
-    let winner = req.body;
-    console.log(winner);
-    allUsers.users += 1;
-    if (winner.bool){
-        allUsers.wins += 1;
-    }
-})
-
-app.get("/api/getResults", (req, res) => {
-    res.json({users: [allUsers.users], wins: [allUsers.wins]});
-})
 
 // app.get('*', (req, res) => {
 //     res.sendFile(path.join(__dirname + '/build/index.html'));

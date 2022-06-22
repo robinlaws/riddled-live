@@ -14,5 +14,5 @@ const RiddleSchema = new mongoose.Schema({
         required: true
     }
 });
-const RiddleModel = mongoose.model("riddles", RiddleSchema, 'riddle');
+const RiddleModel = mongoose.model("riddles", RiddleSchema);
 module.exports = RiddleModel;

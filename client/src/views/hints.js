@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 export function Hints(props){
+  const filterArray = (value) => {
+    return value !== " ";
+  }
+  const shuffleArray = (array) => {
+    let shuffledArray = array.sort(() => Math.random() - 0.5);
+    return shuffledArray;
+  }
     let solution = props.riddle.solution || "";
     let solutionArray = (Array.from(solution));
+    solutionArray = solutionArray.filter(filterArray);
+    const [shuffledArray, setShuffledArray] = useState([]);
     const [count, setCount] = useState(1);
     const [blanks, setBlanks] = useState("");
-
-    const filterArray = (value) => {
-      return value !== " ";
-    }
-
-    useEffect(() => {
-      solutionArray = solutionArray.filter(filterArray);
-    })
+    const [index, setIndex] = useState(0);
 
     const hintCount = async () => {
         console.log("HINT COUNT ",count);
@@ -21,7 +23,6 @@ export function Hints(props){
         setCount(count+1);
         let hintString = "";
         let blankString = "";
-
 
     if (count === 1) {
         for (let i of solution) {
@@ -34,15 +35,18 @@ export function Hints(props){
         setBlanks(blankString);
         hintString += `There are ${solutionArray.length} letters!`
         props.setUserGuesses(props.userGuesses.concat("HINT: " + hintString));
+        setShuffledArray(shuffleArray(solutionArray));
     }
+
     if (count === 2 || count === 3 || count === 4 || count === 5) {
-      solutionArray = solutionArray.sort(() => Math.random() - 0.5);
-      let char = solutionArray.pop();
-      hintString += `The answer contains the letter ${char}`;
+      let char = shuffledArray[index];
+      console.log(shuffledArray);
+      console.log(char);
+      setIndex(index + 1);
+      hintString += `The answer contains the letter ${char.toUpperCase()}`;
       props.setUserGuesses(props.userGuesses.concat("HINT: " + hintString));
     }
 }
-
 
 return (
     <div>
