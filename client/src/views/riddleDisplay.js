@@ -3,7 +3,6 @@ import React from 'react';
 export function RiddleDisplay(props){
     return(
         <div>
-            <h1>RIDDLED</h1>
             <br/>
             <h5>{props.riddle.riddle}</h5>
         </div>

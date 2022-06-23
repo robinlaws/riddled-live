@@ -32,13 +32,13 @@ export function Guesses(props){
 
     inputs.push(
       <div>
-        <input type="text" value={value} placeholder={props.userGuesses.length === i ? "Enter guess" : ""} onChange={onChange} id={`guess_${i}`} disabled={props.userGuesses.length !== i} required/>
+        <input type="text" value={value} onChange={onChange} id={`guess_${i}`} disabled={true} required/>
       </div>
     );
 }
 
     return(
-    <div>
+    <div style={{textAlign: "center"}}>
         {inputs}
     </div>
     )
