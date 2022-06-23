@@ -16,7 +16,7 @@ mongoose.connect("mongodb+srv://robinlaws:36Empire@riddledcluster.7nxyj.mongodb.
 
 app.get("/api/getRiddle", (req, res) => {
     const today = new Date();
-    today.setHours(-2,-30,0,0)
+    today.setHours(0,0,0,0)
     RiddleModel.findOne({'date':[today]}, (err, result) => {
         if (err) {
             res.json(err);
