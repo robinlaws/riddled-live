@@ -5,6 +5,15 @@
   margin: auto;
   align-items: center;
   justify-content: center;
+  @media (max-width: 600px) {
+    .facet_sidebar {
+      display: none;
+    }
+  }
+}
+html {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }
 html {background: fixed;
 background-color: #bbb8ba;}
