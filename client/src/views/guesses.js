@@ -8,7 +8,6 @@ export function Guesses(props){
     useEffect(() => {
         props.userGuesses.forEach((guess, i) => {
             console.log(guess);
-            console.log(s);
             if (s.toLowerCase() === guess.toLowerCase()){
                 props.isGuessCorrect(true);
             }

@@ -8,7 +8,7 @@ import {Stats} from "../pages/Stats";
 import "../App.css";
 
 export function Home(props){
-    const [remainingTurns, setRemainingTurns] = useState(5);
+    const [remainingTurns, setRemainingTurns] = useState(6);
     const [userGuesses, setUserGuess] = useState([]);
     const [noMoreTurns, setNoMoreTurns] = useState(false);
     const [correctGuess, isGuessCorrect] = useState(false);
@@ -48,6 +48,7 @@ export function Home(props){
         props.user.playedToday = true;
         props.user.wins +=1;
         props.user.gamesPlayed +=1;
+        console.log()
         switch(remainingTurns) {
             case 0: props.user.five +=1;
                     break;
