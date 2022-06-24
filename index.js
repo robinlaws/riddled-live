@@ -28,20 +28,20 @@ app.get("/api/getRiddle", (req, res) => {
     });
 });
 
-
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/build/index.html'));
-});
-
 const httpsServer = https.createServer({
-	key: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/privkey.pem'),
-	cert: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/fullchain.pem'),
+        key: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/fullchain.pem'),
 }, app);
 
 httpsServer.listen(443, () => {
     console.log('HTTPS Server running on port 443');
 });
 
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/build/index.html'));
+});
+
 //app.listen(80, () => console.log("Server running. Listening on 443"));
+
 
 
