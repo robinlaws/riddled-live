@@ -5,23 +5,25 @@
   margin: auto;
   align-items: center;
   justify-content: center;
+
+}
+#root {
   @media (max-width: 600px) {
     .facet_sidebar {
       display: none;
     }
   }
+
 }
-html {
-  height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
-}
+
 html {background: fixed;
 background-color: #bbb8ba;}
 
 .nav-title {
+  position: relative;
   color: white;
   text-shadow: 0px 1px 3px rgba(168, 53, 53, 0.8);
-  padding-left: 15%;
+  margin-left: 45%;
   background-color: #333;
 
 
@@ -164,7 +166,7 @@ input {
   padding: 50px 0;
   font-size: large;
 }
-.containers {
+/* .containers {
   font-family: Arial, Helvetica, sans-serif;
   border:solid rgba(9, 9, 9, 0.5) 2px;
   border-radius: 1%;
@@ -174,7 +176,7 @@ input {
   padding: 3%;
   width: 1000px;
   background-color: rgb(243, 231, 232);
-}
+} */
 
 .bg-custom-button {
   background-color: #f5f5f5;

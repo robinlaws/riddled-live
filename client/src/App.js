@@ -16,13 +16,6 @@ function App() {
   const [riddle, setRiddle] = useState({});
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-  const resizeOps = () => {
-    document.documentElement.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
-  };
-
-  resizeOps();
-  window.addEventListener("resize", resizeOps);
-
   const getRiddle = async () => {
     Axios.get(`/api/getRiddle`).then((response) => {
       console.log(response.data);

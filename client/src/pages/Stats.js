@@ -33,10 +33,9 @@ export function Stats(props){
         fontFamily: "helvetica"
     }
     return(
-        <div className="App">    
+        <>    
         <br/>
         <h1>STATS</h1>
-        <div className="containers">
             <Container >
                 <Row style={statStyle} lg={6} className="justify-content-md-center">
                     <Col >{props.user.gamesPlayed}</Col>
@@ -71,8 +70,7 @@ export function Stats(props){
                 <Col><ProgressBar now={props.user.five} max="5" style={{width: 300}} /></Col>
             </Row>
             </Container>
-        </div>
         <SocialMedia />
-        </div>
+        </>
     )       
 };
