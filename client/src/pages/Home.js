@@ -5,6 +5,7 @@ import {Hints} from "../views/hints";
 import {Guesses} from "../views/guesses";
 import { UserKeyboard } from '../components/keyboard';
 import {Stats} from "../pages/Stats";
+import "../App.css";
 
 export function Home(props){
     const [remainingTurns, setRemainingTurns] = useState(5);

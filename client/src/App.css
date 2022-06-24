@@ -3,6 +3,8 @@
   background-color: #bbb8ba;
   padding-bottom: 10px;
   margin: auto;
+  align-items: center;
+  justify-content: center;
 }
 html {background: fixed;
 background-color: #bbb8ba;}
@@ -153,9 +155,16 @@ input {
   padding: 50px 0;
   font-size: large;
 }
-.container {
+.containers {
   font-family: Arial, Helvetica, sans-serif;
-  display: flexbox;
+  border:solid rgba(9, 9, 9, 0.5) 2px;
+  border-radius: 1%;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  padding: 3%;
+  width: 1000px;
+  background-color: rgb(243, 231, 232);
 }
 
 .bg-custom-button {

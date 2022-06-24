@@ -1,9 +1,10 @@
-import React, { useDebugValue, useEffect, useState } from "react";
+import React from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import SocialMedia from "../views/socialMedia";
+import "../App.css";
 
 
 export function Stats(props){
@@ -35,8 +36,7 @@ export function Stats(props){
         <div className="App">    
         <br/>
         <h1>STATS</h1>
-        <div className = "container" style={{borderStyle: "solid", borderRadius: 5, borderWidth: 2, width: 1050, backgroundColor: "#f5f5f5", padding: "50px", verticalAlign: "middle", justifyContent: "center", marginTop: "50px", marginBottom: "100px"}}>
-        <div style={{marginTop: 10}}>
+        <div className="containers">
             <Container >
                 <Row style={statStyle} lg={6} className="justify-content-md-center">
                     <Col >{props.user.gamesPlayed}</Col>
@@ -48,13 +48,8 @@ export function Stats(props){
                     <Col>GAMES WON</Col>
                     <Col>WIN %</Col>
                 </Row>
-            </Container>
-        </div>
-
-        <div class="stats" style={{marginBottom: 15}}>
             <br/>
             <h4 style={{fontWeight: "bold", fontSize: 20}}>GUESS DISTRIBUTION</h4>
-
             <Row >
                 <Col style={guessDistrStyle}>1</Col>
                 <Col><ProgressBar now={props.user.one} max="5" style={{width: 300}} /></Col>
@@ -75,10 +70,9 @@ export function Stats(props){
                 <Col style={guessDistrStyle}>5</Col>
                 <Col><ProgressBar now={props.user.five} max="5" style={{width: 300}} /></Col>
             </Row>
-
+            </Container>
         </div>
         <SocialMedia />
         </div>
-     </div>
     )       
 };
