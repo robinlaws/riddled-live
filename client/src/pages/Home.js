@@ -35,11 +35,11 @@ export function Home(props){
         props.user.gamesPlayed += 1;
         localStorage.setItem('user', JSON.stringify(props.user));
         return(
-            <>
+            <div className="App">
               <RiddleDisplay riddle={props.riddle} />
               <EndOfTurns />
               <SolutionDisplay riddle={props.riddle} />
-            </>
+            </div>
           )
         }
     if (correctGuess){
@@ -61,13 +61,13 @@ export function Home(props){
         }
         localStorage.setItem('user', JSON.stringify(props.user));
         return(
-            <>
+            <div className="App">
                 <RiddleDisplay riddle={props.riddle} />
                 <GuessCorrect />
                 <SolutionDisplay riddle={props.riddle} />
                 <br/>
                 <Stats user={props.user}/>
-            </>
+            </div>
         )
     }
     else{

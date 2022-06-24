@@ -4,7 +4,7 @@ import { FacebookShareButton, TwitterShareButton, FacebookIcon, TwitterIcon} fro
 
 
 export function SocialMedia(){
-    let url = 'www.riddled.ca';
+    let url = 'https://riddled.ca';
   return (
     <div className="social">
         <FacebookShareButton url={url} title="Share Riddled on Facebook!" ><FacebookIcon style={{margin:"10px"}}/></FacebookShareButton>
