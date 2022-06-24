@@ -9,18 +9,15 @@ background-color: #bbb8ba;}
 
 .nav-title {
   color: white;
-  padding-right: 46%;
-  display: inline-block;
   text-shadow: 0px 1px 3px rgba(168, 53, 53, 0.8);
+  padding-left: 15%;
+  background-color: #333;
 
 
 }
 h1 {
   padding-top: 20px;
   text-shadow: 0px 1px 3px rgba(77, 70, 70, 0.8);
-
-
-  
 }
 #sticky-footer{
   position:fixed;
@@ -40,7 +37,6 @@ h1 {
   overflow: hidden;
   background-color: #333;
   font-family: Arial, Helvetica, sans-serif;
-  text-align: left;
   display: inline-block;
 }
 

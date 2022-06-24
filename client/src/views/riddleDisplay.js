@@ -5,6 +5,7 @@ export function RiddleDisplay(props){
         <div>
             <br/>
             <h5>{props.riddle.riddle}</h5>
+            <br/>
         </div>
     )
 
