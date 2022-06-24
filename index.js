@@ -4,6 +4,8 @@ const app = express();
 const mongoose = require('mongoose');
 const RiddleModel = require('./models/riddleModels')
 const cors = require('cors');
+const https = require('https');
+const fs = require('fs');
 
 app.use(express.static(path.join(__dirname, '/build')))
 app.use(express.json());
@@ -26,11 +28,19 @@ app.get("/api/getRiddle", (req, res) => {
     });
 });
 
+const httpsServer = https.createServer({
+        key: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/privkey.pem'),
+        cert: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/fullchain.pem'),
+}, app);
+
+httpsServer.listen(443, () => {
+    console.log('HTTPS Server running on port 443');
+});
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/build/index.html'));
 });
 
-app.listen(8000, () => console.log("Server running. Listening on 8000"));
+//app.listen(8000, () => console.log("Server running. Listening on 8000"));
 
 
