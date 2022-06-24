@@ -16,7 +16,8 @@ export function Stats(props){
     const statStyle = {
         fontWeight: "bold",
         fontSize: 30,
-        columnWidth: 100
+        columnWidth: 100,
+        marginLeft: "0px"
     };
     const textStyle = {
         fontSize: 18
@@ -28,10 +29,12 @@ export function Stats(props){
     };
     const guessDistrStyle = {
         textAlign: "right",
+        marginLeft: "100px",
         fontWeight: "bold",
         fontSize: 16,
         fontFamily: "helvetica"
     }
+
     return(
         <>    
         <br/>
@@ -49,6 +52,7 @@ export function Stats(props){
                 </Row>
             <br/>
             <h4 style={{fontWeight: "bold", fontSize: 20}}>GUESS DISTRIBUTION</h4>
+            <div className="bars">
             <Row >
                 <Col style={guessDistrStyle}>1</Col>
                 <Col><ProgressBar now={props.user.one} max="5" style={{width: 300}} /></Col>
@@ -69,7 +73,9 @@ export function Stats(props){
                 <Col style={guessDistrStyle}>5</Col>
                 <Col><ProgressBar now={props.user.five} max="5" style={{width: 300}} /></Col>
             </Row>
+            </div>
             </Container>
+            
         <SocialMedia />
         </>
     )       

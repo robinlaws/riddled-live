@@ -16,6 +16,13 @@
 
 }
 
+.bars {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 400px;
+  position: relative;
+}
+
 html {background: fixed;
 background-color: #bbb8ba;}
 
