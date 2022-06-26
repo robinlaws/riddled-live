@@ -8,6 +8,7 @@ import {Stats} from "../pages/Stats";
 import "../App.css";
 
 export function Home(props){
+    const [input, setInput] = useState("");
     const [remainingTurns, setRemainingTurns] = useState(6);
     const [userGuesses, setUserGuess] = useState([]);
     const [noMoreTurns, setNoMoreTurns] = useState(false);
@@ -15,7 +16,7 @@ export function Home(props){
     
     useEffect(() => {
         setRemainingTurns(remainingTurns - 1);
-        if (remainingTurns === 0){
+        if (remainingTurns === 1){
           setNoMoreTurns(true);
           console.log(remainingTurns);
         } 
@@ -77,8 +78,8 @@ export function Home(props){
             <div>
             <RiddleDisplay riddle={props.riddle}/>
             <Hints riddle={props.riddle} remainingTurns={remainingTurns} setUserGuesses={setUserGuess} userGuesses={userGuesses}/>
-            <Guesses userGuesses={userGuesses} riddle={props.riddle} isGuessCorrect={isGuessCorrect}/>
-            <UserKeyboard setUserGuess={setUserGuess} userGuesses={userGuesses} />
+            <Guesses userGuesses={userGuesses} setUserGuess={setUserGuess} riddle={props.riddle} isGuessCorrect={isGuessCorrect} input={input} setInput={setInput}/>
+            <UserKeyboard setUserGuess={setUserGuess} userGuesses={userGuesses} input={input} setInput={setInput}/>
             </div>
         )
     }

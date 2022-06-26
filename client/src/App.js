@@ -18,7 +18,6 @@ function App() {
 
   const getRiddle = async () => {
     Axios.get(`/api/getRiddle`).then((response) => {
-      console.log(response.data);
       setRiddle(response.data)});
   }
 
@@ -36,7 +35,6 @@ function App() {
       })
     }
     window.localStorage.setItem('user', JSON.stringify(user));
-    console.log(user);
   }, []);
 
   useEffect(() => {

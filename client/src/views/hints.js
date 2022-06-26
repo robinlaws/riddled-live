@@ -18,8 +18,6 @@ export function Hints(props){
     const [index, setIndex] = useState(0);
 
     const hintCount = async () => {
-        console.log("HINT COUNT ",count);
-        console.log("REMAINING TURNS:", props.remainingTurns);
         setCount(count+1);
         let hintString = "";
         let blankString = "";
@@ -40,8 +38,6 @@ export function Hints(props){
 
     if (count === 2 || count === 3 || count === 4 || count === 5) {
       let char = shuffledArray[index];
-      console.log(shuffledArray);
-      console.log(char);
       setIndex(index + 1);
       hintString += `The answer contains the letter ${char.toUpperCase()}`;
       props.setUserGuesses(props.userGuesses.concat("HINT: " + hintString));
