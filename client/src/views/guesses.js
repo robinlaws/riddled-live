@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export function Guesses(props){
-    const [input, setInput] = useState("");
+    const inputRef = useRef(null);
     let s = props.riddle.solution;
     const maxGuesses = 5;
     
@@ -11,30 +11,33 @@ export function Guesses(props){
             if (s.toLowerCase() === guess.toLowerCase()){
                 props.isGuessCorrect(true);
             }
-        })}
+        })
+
+      }
     , [props.userGuesses]);
+
+    const onChange = (event) => {
+      props.setInput(event.target.value);
+    } 
 
     let inputs = [];
     for (let i = 0; i < maxGuesses; i++) {
-    let value = "";
-    if (i === props.userGuesses.length) {
-      value = input;
-    }
-    if (i < props.userGuesses.length) {
-      value = props.userGuesses[i];
-    }
-
-    const onChange = (event) => {
-        console.log("ONCHANGE", event.target.value);
-        setInput(event.target.value);
+      let value = "";
+      if (i === props.userGuesses.length) {
+        value = props.input;
+      }
+      if (i < props.userGuesses.length) {
+        value = props.userGuesses[i];
       }
 
-    inputs.push(
-      <div>
-        <input type="text" value={value} onChange={onChange} id={`guess_${i}`} disabled={true} required/>
-      </div>
-    );
-}
+      inputs.push(
+        <div>
+          <input ref={i !== props.userGuesses.length ? null: inputRef} type="text" value={value} onChange={onChange} id={`guess_${i}`} disabled={i !== props.userGuesses.length} required/>
+        </div>
+      );
+    }
+
+    inputRef.current?.focus?.();  
 
     return(
     <div style={{textAlign: "center"}}>

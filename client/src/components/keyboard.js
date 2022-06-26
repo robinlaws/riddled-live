@@ -5,29 +5,28 @@ import "react-simple-keyboard/build/css/index.css";
 import "../App.css";
 
 export function UserKeyboard(props){
-  const [input, setInput] = useState("");
   const [layout, setLayout] = useState("default");
   const keyboard = useRef();
 
   const onKeyPress = button => {
     if (button === "{bksp}"){
-      setInput(input.slice(0, -1));  
+      props.setInput(props.input.slice(0, -1));  
     }
     else if (button === "{space}"){
-      setInput(input + " ");
+      props.setInput(props.input + " ");
     }
     else if (button === "{enter}"){
-      props.setUserGuess(props.userGuesses.concat(input));
-      setInput("");
+      props.setUserGuess(props.userGuesses.concat(props.input));
+      props.setInput("");
     }
     else {
-      setInput(input + button);
+      props.setInput(props.input + button);
     }
   }
     return (
       <>
         <br></br>
-        <div><h3> GUESS: {input} </h3></div>
+
         <div className="App">
           <div className="keyboard">
         <br></br>
