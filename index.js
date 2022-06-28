@@ -32,7 +32,6 @@ app.enable('trust proxy')
 app.use((req, res, next) => {
     req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
 })
-const __filename = fileURLToPath(import.meta.url);
 
 const httpsServer = https.createServer({
         key: fs.readFileSync('/etc/letsencrypt/live/riddled.ca/privkey.pem'),
