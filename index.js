@@ -7,7 +7,6 @@ const cors = require('cors');
 const https = require('https');
 const http = require('http');
 const fs = require('fs');
-const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '/build')))
 app.use(express.json());
